@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli</title>
+ 
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            background-image: url('/static/images.jpeg');
+            filter: saturate(1.5);
+        }
+    
+        h1 {
+            color: #333;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+            transform: rotateX(10deg); 
+        }
+    
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+    
+        th {
+            background-color: #4CAF50;
+            color: white;
+            background-image: linear-gradient(to right, #4CAF50, #8BC34A); 
+        }
+    
+        .add-user-form {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            animation: slide-in 1s ease-out; 
+        }
+    
+        .add-user-form h2 {
+            color: #333;
+            text-align: center;
+        }
+    
+        .add-user-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+    
+        .add-user-form input,
+        .add-user-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    
+        .add-user-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+    
+        .add-user-form button:hover {
+            background-color: #45a049;
+        }
+    
+        @keyframes slide-in { 
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <h1>Admin Paneli</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Cinsiyet</th>
+                <th>Doğum Tarihi</th>
+                <th>Fotograf</th>
+                <th>Rolü</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_id, user_data in users.items() %}
+            <tr>
+                <td>{{ user_id }}</td>
+                <td>{{ user_data.get("Ad") }}</td>
+                <td>{{ user_data.get("Soyad") }}</td>
+                <td>{{ user_data.get("Email") }}</td>
+                <td>{{ user_data.get("Telefon") }}</td>
+                <td>{{ user_data.get("Cinsiyet") }}</td>
+                <td>{{ user_data.get("Dogum Tarihi") }}</td>
+                <td>{{ user_data.get("Fotograf") }}</td>
+                <td>{{ user_data.get("role") }}</td>
+                <td>
+                    {% if user_data.get("active") %}
+                    <button onclick="toggleAccount('{{ user_id }}', 'disable')">Devre Dışı Bırak</button>
+                    {% else %}
+                    <button onclick="toggleAccount('{{ user_id }}', 'enable')">Etkinleştir</button>
+                    {% endif %}
+                </td>
+                <td>
+                    <button onclick="editUser('{{ user_id }}')">Düzenle</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="add-user-form">
+        <h2>Kişi Ekle</h2>
+        <form action="{{ url_for('add_user') }}" method="post">
+            <label for="ad">Ad:</label>
+            <input type="text" name="ad" required>
+
+            <label for="soyad">Soyad:</label>
+            <input type="text" name="soyad" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <label for="telefon">Telefon:</label>
+            <input type="number" name="telefon" required>
+
+            <label for="cinsiyet">Cinsiyet:</label>
+            <select id="cinsiyet" name="cinsiyet">
+                <option value="Erkek">Erkek</option>
+                <option value="Kadın">Kadın</option>
+            </select>
+
+            <label for="dogumtarihi">Doğum Tarihi:</label>
+            <input type="date" name="dogumtarihi" required>
+
+            <label for="fotografi">Fotoğraf:</label>
+            <input type="file" name="fotografi" accept=".jpg,.png"><br/><br/>
+
+            <select id="role" name="Rolü">
+                <option value="user">Danışan</option>
+                <option value="coach">Antrenör</option>
+            </select>
+
+            <button type="submit">Kişi Ekle</button>
+
+        </form>
+    </div>
+<script>
+    function toggleAccount(userId, action) {
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "{{ url_for('toggle_account') }}", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                
+                location.reload();
+            }
+        };
+
+    
+        xhr.send(JSON.stringify({ userId: userId, action: action }));
+    }
+   
+    function editUser(userId, userUid) {
+       
+        window.location.href = "{{ url_for('edit_user', user_id='') }}" + userId;
+    }
+
+</script>
+
+</body>
+</html>

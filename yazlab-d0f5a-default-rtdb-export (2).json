@@ -1,0 +1,316 @@
+{
+  "Kullanicilar": {
+    "uid1": {
+      "Ad": "Mehmet",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "1997-06-11",
+      "Email": "mehmetcevik13@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Cevik",
+      "Telefon": "5244567858",
+      "active": true,
+      "role": "user",
+      "sifre": "1234"
+    },
+    "uid10": {
+      "Ad": "Kemal",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "3-4-1982",
+      "Email": "kemalsayan82@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Sayan",
+      "Telefon": "2345344233",
+      "active": true,
+      "role": "user",
+      "sifre": "2343"
+    },
+    "uid11": {
+      "Ad": "Nur",
+      "Cinsiyet": "Kadın",
+      "Dogum Tarihi": "2-0-1998",
+      "Email": "nurtek98@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Tek",
+      "Telefon": "5437893999",
+      "active": true,
+      "role": "user",
+      "sifre": "4434"
+    },
+    "uid12": {
+      "Ad": "Selim",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "2011-07-04",
+      "Email": "selimelmas85@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Elmas",
+      "Telefon": "5748389929",
+      "active": true,
+      "role": "user",
+      "sifre": "5455"
+    },
+    "uid13": {
+      "Ad": "Nadide",
+      "Cinsiyet": "Kadın",
+      "Dogum Tarihi": "9-3-1974",
+      "Email": "nadideaksu@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Aksu",
+      "Telefon": "5467890394",
+      "active": true,
+      "role": "user",
+      "sifre": "7894"
+    },
+    "uid14": {
+      "Ad": "gizem",
+      "Cinsiyet": "Kadın",
+      "Dogum Tarihi": "7-9-1992",
+      "Email": "gizemozturek@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "öztürek",
+      "Telefon": "6784938844",
+      "active": true,
+      "role": "user",
+      "sifre": "45664"
+    },
+    "uid15": {
+      "Ad": "Leyla",
+      "Cinsiyet": "Kadın",
+      "Dogum Tarihi": "3-9-1996",
+      "Email": "leylaaslan@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Aslan",
+      "Telefon": "5434563433",
+      "active": true,
+      "role": "user",
+      "sifre": "8484"
+    },
+    "uid16": {
+      "Ad": "Pelin",
+      "Cinsiyet": "Kadın",
+      "Dogum Tarihi": "9-9-1997",
+      "Email": "pelingecer@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Geçer",
+      "Telefon": "5434563499",
+      "active": true,
+      "role": "user",
+      "sifre": "9388"
+    },
+    "uid17": {
+      "Ad": "Çağla",
+      "Cinsiyet": "Kadın",
+      "Dogum Tarihi": "9-2-1997",
+      "Email": "caglafindik@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Fındık",
+      "Telefon": "5678399209",
+      "active": false,
+      "role": "user",
+      "sifre": "78903"
+    },
+    "uid18": {
+      "Ad": "Şamil",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "8-9-1992",
+      "Email": "samilakar@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Akar",
+      "Telefon": "678392001",
+      "active": true,
+      "role": "user",
+      "sifre": "23456"
+    },
+    "uid2": {
+      "Ad": "Mehmet",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "2001-06-19",
+      "Email": "mehmethale73@hotmail.com",
+      "Fotograf": "\"\"",
+      "Soyad": "\"Hale\"",
+      "Telefon": "5637829900",
+      "active": true,
+      "role": "user",
+      "sifre": 1222
+    },
+    "uid3": {
+      "Ad": "Hakan",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "12/2/1992",
+      "Email": "hakanfay82@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Fay",
+      "Telefon": 5626789201,
+      "active": true,
+      "role": "admin",
+      "sifre": 7272
+    },
+    "uid4": {
+      "Ad": "Burak",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "13/09/1962",
+      "Email": "burakcetin26@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Çetin",
+      "Telefon": "5672876789",
+      "active": true,
+      "role": "user",
+      "sifre": "2344"
+    },
+    "uid5": {
+      "Ad": "Hande",
+      "Cinsiyet": "Kadın",
+      "Dogum Tarihi": "2000-06-15",
+      "Email": "handegazi34@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Gazi",
+      "Telefon": "5673876367",
+      "active": true,
+      "role": "user"
+    },
+    "uid6": {
+      "Ad": "Fırat",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "1982-6-8",
+      "Email": "firatduman@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Duman",
+      "Telefon": 5678389203,
+      "active": true,
+      "role": "coach",
+      "sifre": 3456
+    },
+    "uid7": {
+      "Ad": "Mehmet",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "7-09-1967",
+      "Email": "metmetcelen67@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Celen",
+      "Telefon": 5346379902,
+      "active": true,
+      "role": "coach",
+      "sifre": 8383
+    },
+    "uid8": {
+      "Ad": "Emirhan",
+      "Cinsiyet": "Erkek",
+      "Dogum Tarihi": "1999-07-23",
+      "Email": "emirhancelik@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Çelik",
+      "Telefon": "5637829920",
+      "active": true,
+      "role": "user"
+    },
+    "uid9": {
+      "Ad": "Sertap",
+      "Cinsiyet": "Kadın",
+      "Dogum Tarihi": "1967-03-23",
+      "Email": "sertapdeniz@hotmail.com",
+      "Fotograf": "",
+      "Soyad": "Deniz",
+      "Telefon": "5363789201",
+      "active": true,
+      "role": "user"
+    }
+  },
+  "coaches": {
+    "coach_id1": {
+      "Ad": "Fırat",
+      "Email": "firatduman@hotmail.com",
+      "Soyad": "Duman",
+      "danisanlar": "uid1 ",
+      "deneyimler": "2021-2022",
+      "iletisim_bilgileri": "5678389203",
+      "uzmanlik_alanlari": "kilo aldirma, kilo verdirme"
+    },
+    "coach_id2": {
+      "Ad": "Mehmet",
+      "Email": "metmetcelen67@hotmail.com",
+      "Soyad": "Çelen",
+      "danisanlar": "uid2",
+      "deneyimler": "2015-2021",
+      "iletisim_bilgileri": "5244567856",
+      "uzmanlik_alanlari": "kilo verdirme"
+    }
+  },
+  "exercise_programs": {
+    "program_id1": {
+      "antrenor_id": "coach_id1",
+      "baslama_tarihi": "2023-12-01",
+      "danisan_adi": "Mehmet",
+      "danisan_id": "uid1",
+      "danisan_soyadi": "Cevik",
+      "egzersiz_adi": "\"squat\"",
+      "hedefler": "\"kilo_aldirma\"",
+      "program_suresi": "\"8 hafta\"",
+      "set_sayisi": "3",
+      "tekrar_sayisi": 10,
+      "video_rehberleri": ""
+    },
+    "program_id2": {
+      "antrenor_id": "coach_id1",
+      "danisan_adi": "Mehmet",
+      "danisan_id": "uid2",
+      "danisan_soyadi": "Hale",
+      "egzersiz_adi": "planck",
+      "hedefler": "kas yapma",
+      "program_suresi": "2 hafta",
+      "set_sayisi": "3x15 sn"
+    }
+  },
+  "messages": {
+    "mid": {
+      "antrenor_id": "",
+      "antrenor_mesaj": "",
+      "danisan_id": "",
+      "danisan_mesaj": ""
+    },
+    "mid1": {
+      "antrenor_id": "coach_id1",
+      "antrenor_mesaj": "",
+      "danisan_id": "uid1",
+      "danisan_mesaj": "Merhaba yarınki programı öğrenebilir miyim?"
+    },
+    "mid2": {
+      "antrenor_id": "coach_id1",
+      "antrenor_mesaj": "",
+      "danisan_id": "uid1",
+      "danisan_mesaj": "Yarının egzersiz programı nedir?"
+    },
+    "mid3": {
+      "antrenor_id": "coach_id1",
+      "antrenor_mesaj": "Merhaba",
+      "danisan_id": "uid1",
+      "danisan_mesaj": ""
+    },
+    "mid4": {
+      "antrenor_id": "coach_id1",
+      "antrenor_mesaj": "hgghh",
+      "danisan_id": "uid1",
+      "danisan_mesaj": ""
+    },
+    "mid5": {
+      "antrenor_id": "coach_id1",
+      "antrenor_mesaj": "Merhaba hocam",
+      "danisan_id": "uid1",
+      "danisan_mesaj": ""
+    }
+  },
+  "nutrition_plans": {
+    "plan_id1": {
+      "antrenor_id": "\"coach_id1\"",
+      "danisan_id": "uid1",
+      "hedefler": "kilo_aldirma",
+      "kalori_hedefi": 2000,
+      "ogun": "\"kahvalti\", \"ogle_yemegi\", \"aksam_yemegi\""
+    }
+  },
+  "user_coach_relationship": {
+    "relationship_id1": {
+      "antrenor_id": "coach_id1",
+      "iliski": "",
+      "kullanici_id": "uid1"
+    }
+  }
+}

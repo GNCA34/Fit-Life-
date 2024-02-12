@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <style>
+        div.form {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 20px; 
+}
+
+input[type=text], input[type=sifre], input[type=file], select {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ff6600; 
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    width: 20%;
+    padding: 10px;
+    background-image: linear-gradient(to bottom, #ff6600, #ff9900); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0077cc;
+    transform: scale(1.1); 
+}
+
+table {
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ff6600; 
+        }
+        body {
+        background-color: #e1e727; 
+    }
+    </style>
+
+</head>
+<body>
+
+    <h1>Antrenör Profil Bilgileri</h1>
+    <div class="form">
+        <form action="{{ update_profile_url }}" method="post" enctype="multipart/form-data">
+
+            <label for="Ad">Ad:</label>
+            <input type="text" id="Ad" name="Ad" value="{{ user_data['Ad'] }}" required>
+            <br>
+            <label for="Soyad">Soyad:</label>
+            <input type="text" id="Soyad" name="Soyad" value="{{ user_data['Soyad'] }}" required>
+         
+            <br>
+            <label for="Email">Email:</label>
+            <input type="text" id="Email" name="Email" value="{{ user_data['Email'] }}" required>
+            <br>
+            <br>
+            <label for="iletisim_bilgileri">Telefon:</label>
+            <input type="text" id="iletisim_bilgileri" name="iletisim_bilgileri" value="{{ user_data['iletisim_bilgileri'] }}" required>
+            <br>
+            <br>
+            <label for="danisanlar">danisanlar:</label>
+            <input type="text" id="danisanlar" name="danisanlar" value="{{ user_data['danisanlar'] }}" required>
+            <br>
+        
+            <label for="deneyimler">deneyimler</label>
+            <input type="text" id="deneyimler" name="deneyimler" value="{{ user_data['deneyimler'] }}" required>
+            <br>
+            <br>
+            <label for="uzmanlik_alanlari">uzmanlik_alanlari</label>
+            <input type="text" id="uzmanlik_alanlari" name="uzmanlik_alanlari" value="{{ user_data['uzmanlik_alanlari'] }}" required>
+            <br>
+            <button type="submit">Güncelle</button>
+          
+
+        </form>
+
+
+        
+        <h2>Egzersiz Programları</h2>
+        <table>
+            <tr>
+                
+                <th>danisan_id</th>
+                <th>antrenor_id</th>
+                <th>Danışan Ad</th>
+                <th>Danışan Soyad</th>
+                <th>Egzersiz Adı</th>
+                <th>Hedefler</th>
+                <th>Program Süresi</th>
+                <th>Set Sayısı</th>
+            </tr>
+            {% for program_id, program_data in exercise_programs.items() %}
+                <tr>
+                    <td>{{ program_data['danisan_id'] }}</td>
+                    <td>{{ program_data['antrenor_id'] }}</td>
+                    <td>{{ program_data['danisan_adi'] }}</td>
+                    <td>{{ program_data['danisan_soyadi'] }}</td>
+                    <td>{{ program_data['egzersiz_adi'] }}</td>
+                    <td>{{ program_data['hedefler'] }}</td>
+                    <td>{{ program_data['program_suresi'] }}</td>
+                    <td>{{ program_data['set_sayisi'] }}</td>
+                    <td>
+                        
+                        <a href="{{ url_for('update_program', program_id=program_id) }}">Güncelle</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    <h3>Antrenör Mesajları</h3>
+
+
+    <div class="add-message2-form">
+        <h4>Danışana Mesaj Gönder</h4>
+        <form method="POST" action="{{ url_for('add_message2') }}">
+            <label for="danisan_id">Danışan ID:</label>
+            <input type="text" id="danisan_id" name="danisan_id" required><br>
+    
+            <label for="antrenor_id">Antrenör ID:</label>
+            <input type="text" id="antrenor_id" name="antrenor_id" required><br>
+    
+            <label for="antrenor_mesaj">Antrenör Mesaj:</label>
+            <textarea id="antrenor_mesaj" name="antrenor_mesaj" required></textarea><br>
+    
+            <button type="submit">Mesajı Gönder</button>
+        </form>
+        
+    </div>
+    <h3>Danışan Mesajları</h3>
+    <ul>
+      {% for message in antrenor_messages %}
+        <li>
+          Danışan Mesajı: {{ message }}
+        </li>
+      {% endfor %}
+    </ul>
+</body>
+
+</html>

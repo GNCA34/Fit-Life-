@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profil</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        background-image: url('/static/fitness.jpg'); 
+        background-size: cover;
+        background-blend-mode: multiply; 
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+        
+    div.form {
+        width: 50%;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 10px; 
+        background-color: rgba(255, 255, 255, 0.8); 
+    }
+
+    input[type=text], input[type=sifre], input[type=file] {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        background-color: #f0f0f0; 
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.2); 
+    }
+
+    button {
+        width: 20%;
+        padding: 10px;
+        background-color: #deb5b5; 
+        color: #e79191; 
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease; 
+    }
+
+    button:hover {
+        background-color: #e0e0e0; 
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden; 
+    }
+
+    th, td {
+        border: 1px solid #ab3b3b;
+        padding: 8px;
+        text-align: left;
+        background-color: #f0f0f0; 
+        border-radius: 5px; 
+    }
+
+    th {
+        background-color: #f0f0f0; 
+        color: #333; 
+    }
+
+    td:hover {
+        background-color: #e0e0e0; 
+    }
+</style>
+    </head>
+<body>
+    <audio controls autoplay loop>
+        <source src="/static/fon.mp3" type="audio/mp3"> 
+   
+    </audio>
+    <h1>Profil</h1>
+    <div class="form">
+        <form action="{{ update_profile_url }}" method="post" enctype="multipart/form-data">
+            <label for="ad">Ad:</label>
+            <input type="text" id="ad" name="ad" value="{{ user_data['Ad'] }}" required>
+            <br>
+            <label for="soyad">Soyad:</label>
+            <input type="text" id="soyad" name="soyad" value="{{ user_data['Soyad'] }}" required>
+            <br>
+            <label for="dogum_tarihi">Doğum Tarihi:</label>
+            <input type="text" id="dogum_tarihi" name="dogum_tarihi" value="{{ user_data['Dogum Tarihi'] }}" required>
+            <br>
+            <label for="cinsiyet">Cinsiyet:</label>
+            <input type="text" id="cinsiyet" name="cinsiyet" value="{{ user_data['Cinsiyet'] }}" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="{{ user_data['Email'] }}" required>
+            <br>
+            <br>
+            <label for="telefon">Telefon:</label>
+            <input type="text" id="telefon" name="telefon" value="{{ user_data['Telefon'] }}" required>
+            <br>
+            <br>
+            <label for="sifre">sifre:</label>
+            <input type="sifre" id="sifre" name="sifre" value="{{ user_data['sifre'] }}" required>
+            <br>
+            <label for="fotograf">Profil Fotoğrafı:</label>
+            <input type="file" id="fotograf" name="fotograf">
+            <br>
+            <button type="submit">Güncelle</button>
+        </form>
+    </div>
+
+    <h2>Danışan Egzersiz Programları</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Antrenör</th>
+                <th>Danışan</th>
+                <th>Egzersiz Adı</th>
+                <th>Hedefler</th>
+                <th>Program Süresi</th>
+                <th>Set Sayısı</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            {% for program in danisan_programs %}
+                <tr>
+                    <td>{{program['antrenor_id']}}</td>
+                    <td>{{program['danisan_id']}}</td>
+                    <td>{{ program['egzersiz_adi'] }}</td>
+                    <td>{{ program['hedefler'] }}</td>
+                    <td>{{ program['program_suresi'] }}</td>
+                    <td>{{ program['set_sayisi'] }}</td>
+                  
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>Danışan Beslenme Programları</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Hedefler</th>
+                <th>Kalori Hedefi</th>
+                <th>Öğün</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for plan in danisan_plans %}
+                <tr>
+                    <td>{{ plan['hedefler'] }}</td>
+                    <td>{{ plan['kalori_hedefi'] }}</td>
+                    <td>{{ plan['ogun'] }}</td>
+                  
+                  
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Danışan Mesajları</h3>
+
+
+    <div class="add-message-form">
+        <h4>Mesaj Gönder</h4>
+        <form method="POST" action="{{ url_for('add_message') }}">
+            <label for="danisan_id">Danışan ID:</label>
+            <input type="text" id="danisan_id" name="danisan_id" required><br>
+    
+            <label for="antrenor_id">Antrenör ID:</label>
+            <input type="text" id="antrenor_id" name="antrenor_id" required><br>
+    
+            <label for="danisan_mesaj">Danışan Mesaj:</label>
+            <textarea id="danisan_mesaj" name="danisan_mesaj" required></textarea><br>
+    
+            <button type="submit">Mesajı Gönder</button>
+        </form>
+        
+    </div>
+
+    <h3>Antrenör Mesajları</h3>
+    <ul>
+      {% for message in antrenor_messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+
+</body>
+
+</html>

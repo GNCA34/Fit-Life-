@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Güncelle</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #0099ff;
+        }
+
+        form {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #0099ff;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #0099ff;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="file"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #0099ff;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="file"]:focus {
+            background-color: #fff;
+            border: 1px solid #005580;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0099ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background-color: #005580;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background-color: #005580;
+            transition: all 0.3s ease;
+        }
+
+        button:hover::before {
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <h1>Profilinizi Güncelleyin</h1>
+    <form action="{{ url_for('update_profile') }}" method="post">
+       
+        <label for="ad">Ad:</label>
+        <input type="text" id="ad" name="ad" value="{{ user_data.get('Ad') }}" required>
+        <br>
+        <label for="soyad">Soyad:</label>
+        <input type="text" id="soyad" name="soyad" value="{{ user_data.get('Soyad') }}" required>
+        <br>
+        <br>
+        <label for="dogum_tarihi">Doğum Tarihi:</label>
+        <input type="text" id="dogum_tarihi" name="dogum_tarihi" value="{{ user_data['Dogum Tarihi'] }}" required>
+        <br>
+        <label for="cinsiyet">Cinsiyet:</label>
+        <input type="text" id="cinsiyet" name="cinsiyet" value="{{ user_data['Cinsiyet'] }}" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="{{ user_data['Email'] }}" required>
+        <br>
+        <label for="telefon">Telefon:</label>
+        <input type="text" id="telefon" name="telefon" value="{{ user_data['Telefon'] }}" required>
+        <br>
+        <br>
+        <label for="sifre">sifre:</label>
+        <input type="sifre" id="sifre" name="sifre" value="{{ user_data['sifre'] }}" required>
+        <br>
+        <label for="fotograf">Profil Fotoğrafı:</label>
+        <input type="file" id="fotograf" name="fotograf" value="{{ user_data['Fotograf'] }}" required>
+        <br>
+    
+
+        <input type="hidden" id="email" name="email" value="{{ user_data.get('Email') }}">
+
+        <br>
+        <button type="submit">Güncelle</button>
+    </form>
+</body>
+</html>

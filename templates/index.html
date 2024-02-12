@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şifremi Sıfırla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('/static/arka_plan_resmi.jpeg'); 
+            background-size: cover;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #292c30;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>FitLife - Online Fitness Koçluğu</h1>
+    <form id="loginForm" action="{{ url_for('login') }}" method="post">
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="role">Kullanıcı Rolü:</label>
+        <select id="role" name="role">
+            <option value="user">Danışan</option>
+            <option value="coach">Antrenör</option>
+            <option value="admin">Admin</option>
+        </select>
+        <br>
+        <button type="submit">Giriş Yap</button>
+    </form>
+
+    <p>Hesabınız yok mu? <a href="{{ url_for('show_register') }}">Kayıt Ol</a></p>
+    <a href="{{ url_for('reset_password') }}">Şifremi Unuttum</a>
+</body>
+</html>

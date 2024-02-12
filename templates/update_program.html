@@ -1,0 +1,132 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programı Güncelle</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #0099ff;
+        }
+
+        form {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #0099ff;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #0099ff;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="file"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #0099ff;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="file"]:focus {
+            background-color: #fff;
+            border: 1px solid #005580;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0099ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background-color: #005580;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background-color: #005580;
+            transition: all 0.3s ease;
+        }
+
+        button:hover::before {
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Programı Güncelle</h1>
+    <div class="form">
+        <form action="{{ url_for('update_program', program_id=program['program_id']) }}" method="post" enctype="multipart/form-data">
+            <label for="antrenor_id">Antrenör ID</label>
+            <input type="text" id="antrenor_id" name="antrenor_id" value="{{ program['antrenor_id'] }}" required>
+            <br> 
+            <br> 
+            <label for="danisan_id">Danışan ID:</label>
+            <input type="text" id="danisan_id" name="danisan_id" value="{{ program['danisan_id'] }}" required>
+            <br>
+            
+            <label for="danisan_adi">Danışan Adı:</label>
+            <input type="text" id="danisan_adi" name="danisan_adi" value="{{ program['danisan_adi'] }}" required>
+            <br> 
+            <label for="danisan_soyadi">Danışan soyadı:</label>
+            <input type="text" id="danisan_soyadi" name="danisan_soyadi" value="{{ program['danisan_soyadi'] }}" required>
+            <br>
+            
+            <label for="egzersiz_adi">Egzersiz Adı:</label>
+            <input type="text" id="egzersiz_adi" name="egzersiz_adi" value="{{ program['egzersiz_adi'] }}" required>
+            <br>
+            <label for="hedefler">Hedefler:</label>
+            <input type="text" id="hedefler" name="hedefler" value="{{ program['hedefler'] }}" required>
+            <br>
+            <label for="program_suresi">Program Süresi:</label>
+            <input type="text" id="program_suresi" name="program_suresi" value="{{ program['program_suresi'] }}" required>
+            <br>
+            <label for="set_sayisi">Set Sayısı:</label>
+            <input type="text" id="set_sayisi" name="set_sayisi" value="{{ program['set_sayisi'] }}" required>
+            <br>
+        
+
+            <button type="submit">Güncelle</button>
+        </form>
+    </div>
+
+</body>
+</html>

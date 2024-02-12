@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <style>
+        body {
+          background-color: lightblue;
+        }
+    
+        h2 {
+          color: white;
+        }
+    
+        p {
+          color: white;
+        }
+    
+        form {
+          background-color: lightblue;
+          border: 2px solid black;
+        }
+    
+        label {
+          display: inline-block;
+          width: 100px;
+          margin-bottom: 10px;
+        }
+    
+        input[type=text], input[type=email], input[type=password] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          box-sizing: border-box;
+          border: none;
+          border-bottom: 2px solid black;
+        }
+    
+        input[type=file] {
+          margin-top: 10px;
+        }
+    
+        button[type=submit] {
+          background-color: white;
+          color: black;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+        }
+    
+        button[type=submit]:hover {
+          background-color: black;
+          color: white;
+        }
+      </style>
+</head>
+<body>
+    <h1>Kayıt Ol</h1>
+    <form action="{{ url_for('register') }}" method="post">
+        <label for="ad">Ad:</label>
+        <input type="text" id="ad" name="ad" required>
+        <br>
+        <label for="soyad">Soyad:</label>
+        <input type="text" id="soyad" name="soyad" required>
+        <br>
+        <label for="dogum_tarihi">Doğum Tarihi:</label>
+        <input type="text" id="dogum_tarihi" name="dogum_tarihi" required>
+        <br>
+        <label for="cinsiyet">Cinsiyet:</label>
+        <input type="text" id="cinsiyet" name="cinsiyet" required>
+        <br>
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="telefon">Telefon:</label>
+        <input type="text" id="telefon" name="telefon" required>
+        <br>
+        <label for="sifre">Şifre:</label>
+        <input type="password" id="sifre" name="sifre" required>
+        <br>
+        <br>
+        <label for="fotograf">Fotograf:</label>
+        <input type="file" id="fotograf" name="fotograf" accept="image/*">
+        <br>
+        <label for="role">Rol:</label>
+        <select id="role" name="role" required>
+            <option value="user">User</option>
+            
+        </select>
+        <button type="submit">Kayıt Ol</button>
+    </form>
+</body>
+</html>
